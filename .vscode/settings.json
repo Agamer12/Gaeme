@@ -56,5 +56,8 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Gaeme.sln"
+    "dotnet.defaultSolution": "Gaeme.sln",
+    "cSpell.words": [
+        "Gaeme"
+    ]
 }
