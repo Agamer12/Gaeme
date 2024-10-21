@@ -3,17 +3,19 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //Objects
-    public GameObject player;
+    private GameObject player;
 
     //Components
     private Rigidbody2D rb;
 
     //Variables
-    public float moveSpeed;
+    [SerializeField] 
+    private float moveSpeed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        player = gameObject;
         rb = GetComponent<Rigidbody2D>();
         
     }
