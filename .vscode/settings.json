@@ -58,6 +58,7 @@
     },
     "dotnet.defaultSolution": "Gaeme.sln",
     "cSpell.words": [
-        "Gaeme"
+        "Gaeme",
+        "Mathf"
     ]
 }
