@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //Objects
-    private GameObject player;
+    private GameObject Player;
 
     //Components
     private Rigidbody2D rb;
@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        player = gameObject;
+        Player = gameObject;
         rb = GetComponent<Rigidbody2D>();
         
     }
@@ -27,13 +27,13 @@ public class PlayerMovement : MonoBehaviour
         
         if(Mathf.Abs(Input.GetAxisRaw("Horizontal"))>0.5)
         {
-            player.transform.position = new Vector3(player.transform.position.x+Input.GetAxisRaw("Horizontal")*moveSpeed*Time.deltaTime, player.transform.position.y, player.transform.position.z);
+            Player.transform.position = new Vector3(Player.transform.position.x+Input.GetAxisRaw("Horizontal")*moveSpeed*Time.deltaTime, Player.transform.position.y, Player.transform.position.z);
             
         }
 
         if(Mathf.Abs(Input.GetAxisRaw("Vertical"))>0.5)
         {
-            player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y+Input.GetAxisRaw("Vertical")*moveSpeed*Time.deltaTime, player.transform.position.z);
+            Player.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y+Input.GetAxisRaw("Vertical")*moveSpeed*Time.deltaTime, Player.transform.position.z);
         }
     }
 
