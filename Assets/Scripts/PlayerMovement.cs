@@ -36,4 +36,12 @@ public class PlayerMovement : MonoBehaviour
             player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y+Input.GetAxisRaw("Vertical")*moveSpeed*Time.deltaTime, player.transform.position.z);
         }
     }
+
+    public float getMoveSpeed() {
+        return moveSpeed;
+    }
+
+    public void setMoveSpeed(float value) {
+        moveSpeed = value;
+    }
 }
