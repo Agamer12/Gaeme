@@ -12,6 +12,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] 
     private float moveSpeed;
 
+    private struct PlayerDirection {
+        int x, y;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,12 +32,13 @@ public class PlayerMovement : MonoBehaviour
         if(Mathf.Abs(Input.GetAxisRaw("Horizontal"))>0.5)
         {
             Player.transform.position = new Vector3(Player.transform.position.x+Input.GetAxisRaw("Horizontal")*moveSpeed*Time.deltaTime, Player.transform.position.y, Player.transform.position.z);
-            
+            //TODO changed set player direction
         }
 
         if(Mathf.Abs(Input.GetAxisRaw("Vertical"))>0.5)
         {
             Player.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y+Input.GetAxisRaw("Vertical")*moveSpeed*Time.deltaTime, Player.transform.position.z);
+            //TODO changed set player direction
         }
     }
 
