@@ -18,9 +18,9 @@ public class HurtEnemy : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log("detected enemy");
         if(col.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("detected enemy");
             col.gameObject.GetComponent<EnemyHealthManager>().currentHealth-=damageToGive;
         }
     }

@@ -18,9 +18,9 @@ public class HurtPlayer : MonoBehaviour
 
      void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("detected player");
         if(collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("detected player");
             collision.gameObject.GetComponent<PlayerHealthManager>().currentHealth-=damageToGive;
         }
     }
