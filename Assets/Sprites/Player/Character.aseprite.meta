@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 77dfe9c246f7d4dfb918dcc154bb1499
+guid: e5239d90bc10a5ad3b30cb95985361d5
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -71,7 +71,7 @@ ScriptedImporter:
     textureFormatSet: 0
     applyGammaDecoding: 0
   previousAsepriteImporterSettings:
-    fileImportMode: 0
+    fileImportMode: 1
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
@@ -84,7 +84,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   asepriteImporterSettings:
-    fileImportMode: 0
+    fileImportMode: 1
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638656646504783580
+  platformSettingsDirtyTick: 638656677697653290
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -124,7 +124,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Character
     originalName: 
-    pivot: {x: 0.48692316, y: 0.3934167}
+    pivot: {x: 0.6818182, y: -0.33333334}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -132,9 +132,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 29
-      height: 31
-    spriteID: f77ed368120a042deb748cb51098aeb5
+      width: 44
+      height: 48
+    spriteID: 6d1f602ec839c19e69186f00260b94a7
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -142,50 +142,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: -13, y: -12}
-  spriteSheetImportData:
-  - name: Character_0
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 19
-      y: 20
-      width: 16
-      height: 16
-    spriteID: 23e91998c26b2491db15945437150bca
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: Character_1
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 3
-      y: 4
-      width: 16
-      height: 16
-    spriteID: b2d712804a9f94325b1d12ddb42bc6d2
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
+    uvTransform: {x: 2, y: -12}
+  spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
     guid: -1246400679
@@ -202,7 +160,7 @@ ScriptedImporter:
         y: 0
         width: 64
         height: 64
-      spriteId: f77ed368120a042deb748cb51098aeb5
+      spriteId: 6d1f602ec839c19e69186f00260b94a7
     linkedCells: []
     parentIndex: -1
   platformSettings:

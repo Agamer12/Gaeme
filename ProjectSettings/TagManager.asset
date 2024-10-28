@@ -45,11 +45,14 @@ TagManager:
   - name: Ground
     uniqueID: 1865294621
     locked: 0
+  - name: Enemy
+    uniqueID: 1364896799
+    locked: 0
   - name: Player
     uniqueID: 146774889
     locked: 0
-  - name: Enemy
-    uniqueID: 1364896799
+  - name: Wall
+    uniqueID: 2333098655
     locked: 0
   m_RenderingLayers:
   - Default
