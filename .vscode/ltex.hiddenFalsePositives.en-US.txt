@@ -1,0 +1,1 @@
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Qtop down (original Zelda style) Stardew Valley Speeder 2 Gonegon\\E$"}
