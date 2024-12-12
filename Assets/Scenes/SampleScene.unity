@@ -1237,10 +1237,6 @@ CompositeCollider2D:
       - X: -20000000
         Y: 40000000
       - X: -20000000
-        Y: 30000000
-      - X: -10000000
-        Y: 30000000
-      - X: -10000000
         Y: 20000000
       - X: 10000000
         Y: 20000000
@@ -1256,9 +1252,7 @@ CompositeCollider2D:
       - {x: -10, y: -2.9999707}
       - {x: -9.99997, y: 4}
       - {x: -2, y: 3.9999704}
-      - {x: -1.9999708, y: 3}
-      - {x: -1, y: 2.9999707}
-      - {x: -0.99997073, y: 2}
+      - {x: -1.9999708, y: 2}
       - {x: 1, y: 1.9999707}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
@@ -4020,6 +4014,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: -2, y: 2, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: -1, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -6274,7 +6278,7 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 10
     m_Data: {fileID: 11400000, guid: c35c9f89a181841da87de413de0457f1, type: 2}
-  - m_RefCount: 2
+  - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 7cd6b5951a1f545ba964a4dec18f81c3, type: 2}
   - m_RefCount: 6
     m_Data: {fileID: 11400000, guid: 05b2a6134bf54468390b7ba0a6cf3a61, type: 2}
@@ -6293,7 +6297,7 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 10
     m_Data: {fileID: 224684656, guid: e06ad4199720c44e986b6c35cb33c2a9, type: 3}
-  - m_RefCount: 2
+  - m_RefCount: 3
     m_Data: {fileID: -275843044, guid: e06ad4199720c44e986b6c35cb33c2a9, type: 3}
   - m_RefCount: 6
     m_Data: {fileID: 250875125, guid: e06ad4199720c44e986b6c35cb33c2a9, type: 3}
@@ -6310,7 +6314,7 @@ Tilemap:
   - m_RefCount: 449
     m_Data: {fileID: -770152377, guid: e06ad4199720c44e986b6c35cb33c2a9, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 488
+  - m_RefCount: 489
     m_Data:
       e00: 1
       e01: 0
@@ -6329,7 +6333,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 488
+  - m_RefCount: 489
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -6748,7 +6752,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 848c8f191316d7f668e8175b5fb8d07a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageToGive: 10
 --- !u!60 &2041555469
 PolygonCollider2D:
   m_ObjectHideFlags: 0
