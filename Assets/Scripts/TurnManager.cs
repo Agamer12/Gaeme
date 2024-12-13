@@ -6,6 +6,7 @@ public class TurnManager : MonoBehaviour
 {
     public bool isPlayerTurn;
     public bool interupt;
+    public float waitTime;
 
     private bool change;
 
@@ -55,7 +56,7 @@ public class TurnManager : MonoBehaviour
                 setPlayerTurn(true);
             }
 
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(waitTime);
         }
     }
 }
