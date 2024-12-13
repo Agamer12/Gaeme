@@ -5,6 +5,9 @@ public class DoorHandler : MonoBehaviour
 {
     public GameObject room;
     public GameObject door;
+
+    public GameObject[] Loadlist;
+    public GameObject[] UnloadList;
     public float delayBeforeTeleport; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,6 +34,11 @@ public class DoorHandler : MonoBehaviour
 
     IEnumerator TeleportAfterDelay(Collider2D collider)
     {
+        foreach (GameObject obj in Loadlist)
+        {
+            obj.SetActive(true);
+        }
+
         // Wait for the specified delay time
         yield return new WaitForSeconds(delayBeforeTeleport);
 
@@ -47,6 +55,11 @@ public class DoorHandler : MonoBehaviour
             Vector3 cameraPosition = room.transform.position;
             cameraPosition.z = Camera.main.transform.position.z;
             Camera.main.transform.position = cameraPosition;
+        }
+
+        foreach (GameObject obj in UnloadList)
+        {
+            obj.SetActive(false);
         }
     }
 }
