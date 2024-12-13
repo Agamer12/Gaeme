@@ -5,20 +5,20 @@ public class DetectionManager : MonoBehaviour
 {
     public float warningRange;
     public float deadRange;
-    public float detectionAngleWarn; // Angle in degrees
-    public float detectionAngleDead; // Angle in degrees
-    public Transform enemyEye; // The point from which rays are cast
-    public LayerMask playerMask; // Specifically for detecting the player
-    public LayerMask obstacleMask; // Specifically for blocking line of sight
-    public Tilemap detectionTilemap; // Tilemap to visualize detection areas
-    public TileBase warningTile; // Tile visual for warning range
-    public TileBase deadTile; // Tile visual for immediate threat range
+    public float detectionAngleWarn;
+    public float detectionAngleDead;
+    public Transform enemyEye;
+    public LayerMask playerMask;
+    public LayerMask obstacleMask;
+    public Tilemap detectionTilemap;
+    public TileBase warningTile;
+    public TileBase deadTile;
 
     private Vector2 currentFacingDirection;
 
     void Update()
     {
-        currentFacingDirection = transform.up; // Assumes the enemy "looks" along the local right axis
+        currentFacingDirection = transform.up;
         UpdateDetectionTiles();
         CheckRanges();
     }
@@ -55,7 +55,7 @@ public class DetectionManager : MonoBehaviour
 
     void UpdateDetectionTiles()
     {
-        detectionTilemap.ClearAllTiles(); // Clear previous states
+        detectionTilemap.ClearAllTiles();
         HighlightTiles(warningRange, warningTile, detectionAngleWarn);
         HighlightTiles(deadRange, deadTile, detectionAngleDead);
     }
@@ -71,7 +71,7 @@ public class DetectionManager : MonoBehaviour
             for (int y = -tileRange; y <= tileRange; y++)
             {
                 Vector3Int tilePosition = new Vector3Int(basePosition.x + x, basePosition.y + y, basePosition.z);
-                Vector3 tileWorldPosition = detectionTilemap.CellToWorld(tilePosition) + detectionTilemap.cellSize / 2; // Center of the tile
+                Vector3 tileWorldPosition = detectionTilemap.CellToWorld(tilePosition) + detectionTilemap.cellSize / 2;
                 Vector2 directionToTile = tileWorldPosition - enemyEye.position;
 
                 if (Vector2.Distance(tileWorldPosition, enemyEye.position) <= range)
@@ -79,7 +79,7 @@ public class DetectionManager : MonoBehaviour
                     float angleToTile = Vector2.SignedAngle(currentFacingDirection, directionToTile.normalized);
                     if (Mathf.Abs(angleToTile) <= halfAngle)
                     {
-                        // Check if the tile is within line of sight
+                        // Check if the tile is in line of sight
                         RaycastHit2D hit = Physics2D.Raycast(enemyEye.position, directionToTile.normalized, range, obstacleMask);
                         if (hit.collider == null || Vector2.Distance(hit.point, enemyEye.position) >= Vector2.Distance(tileWorldPosition, enemyEye.position))
                         {
