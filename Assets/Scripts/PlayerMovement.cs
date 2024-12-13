@@ -130,4 +130,11 @@ public class PlayerMovement : MonoBehaviour
             turnManager.setPlayerTurn(true);
         }
     }
+
+    public void TeleportPlayer(Vector3 newPosition)
+    {
+        // Set the player's and movePoint's positions to the new location
+        transform.position = newPosition;
+        movePoint.position = newPosition;
+    }
 }
