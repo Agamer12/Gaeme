@@ -52,7 +52,6 @@ public class TurnManager : MonoBehaviour
             // Set player's turn when no interruptions are present
             if (!isPlayerTurn)
             {
-                Debug.Log("It's now the player's turn.");
                 setPlayerTurn(true);
             }
 
