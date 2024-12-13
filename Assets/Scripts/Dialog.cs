@@ -1,64 +1,49 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
-using System;
 
 public class Dialog : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
-    public string[] lines;
+    public string line;  // This holds the current line of text to display
     public float textSpeed;
 
-    private int index;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         textComponent.text = string.Empty;
+        gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (textComponent.text == lines[index])
+            if (textComponent.text == line)
             {
-                NextLine();
+                gameObject.SetActive(false);
             }
             else
             {
                 StopAllCoroutines();
-                        textComponent.text = lines[index];
+                textComponent.text = line;
             }
         }
-        
     }
 
-    void StartDiolog()
+    public void StartDialog(string newLine) // Corrected method name and parameter name
     {
-        index = 0;
+        gameObject.SetActive(true);
+        line = newLine;
+        textComponent.text = "";
         StartCoroutine(TypeLine());
     }
 
     IEnumerator TypeLine()
     {
-        foreach (char c in lines[index]) {
+        foreach (char c in line)
+        {
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
-        }
-    }
-
-    void NextLine()
-    {
-        if (index < lines.Length -1)
-        {
-            index++;
-            textComponent.text = string.Empty;
-            StartCoroutine(TypeLine());
-        } else
-        {
-            gameObject.SetActive(false);
         }
     }
 }

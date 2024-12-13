@@ -1,28 +1,36 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class DialogHandler : MonoBehaviour
 {
+    public string[] lines;
     private uint count;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private Dialog text;
+
+    void Awake()
+    {
+        // Correctly use GetComponent to fetch the Dialog component from the GameObject named "DialogBox"
+        text = GameObject.Find("DialogBox").GetComponent<Dialog>();
+    }
+
     void Start()
     {
         count = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        
-    }
-
-    void OnColisionEnter2D(Collider2D colider)
-    {
-        if (colider.CompareTag("Player"))
+        if (collider.CompareTag("Player"))
         {
+            Debug.Log("Player triggered. Count: " + count);
+            if (count <= lines.Length)
+            {
+                text.StartDialog(lines[count]);
+            }
+            else
+            {
+                text.StartDialog(lines[lines.Length - 1]);
+            }
             count++;
         }
-
-        Debug.Log(count);
     }
 }

@@ -17,11 +17,13 @@ public class TurnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPlayerTurn != change)
+        if (isPlayerTurn != change && isPlayerTurn)
         {
             Debug.Log("isPlayerTurn: "+ isPlayerTurn);
             change = isPlayerTurn;
         }
+        
+        isPlayerTurn = true;
     }
 
     public void setPlayerTurn(bool val)
