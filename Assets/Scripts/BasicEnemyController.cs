@@ -7,6 +7,7 @@ public class BasicEnemyController : MonoBehaviour
 {
     public float moveSpeed;
     public Transform[] movePoints;
+    public int waitTurns;
     public Transform eye;
 
     private TurnManager tm;
@@ -28,11 +29,14 @@ public class BasicEnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (turn != tm.turn)
+        if (turn < tm.turn)
         {
             if (Vector3.Distance(transform.position, movePoints[nextMovePointIndex].transform.position) <= 0.1f)
             {
                 nextMovePointIndex = (nextMovePointIndex + 1) % movePoints.Length;
+                turn += waitTurns;
+                tm.setInterupt(false);
+                return;
             }
 
             Vector3 vec = (movePoints[nextMovePointIndex].transform.position - transform.position).normalized;
@@ -61,7 +65,6 @@ public class BasicEnemyController : MonoBehaviour
         }
 
         transform.position = new Vector3(newPos.x, newPos.y, 0);
-        Debug.Log("finished move");
 
         if (Vector3.Distance(transform.position, movePoints[nextMovePointIndex].transform.position) <= 0.1f)
         {

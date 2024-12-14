@@ -26,8 +26,17 @@ public class DoorHandler : MonoBehaviour
     {
         if (magicTP && Input.GetKeyDown(KeyCode.T))
         {
-            GameObject player = GameObject.Find("Player");
-            StartCoroutine(TeleportAfterDelay(player.GetComponent<Collider2D>()));
+            load();
+            Vector3 newPosition = door.transform.position;
+
+            newPosition.x = Mathf.Round(newPosition.x);
+            newPosition.y = Mathf.Round(newPosition.y);
+            PlayerMovement.Instance.TeleportPlayer(newPosition);
+
+            Vector3 cameraPosition = room.transform.position;
+            cameraPosition.z = Camera.main.transform.position.z;
+            Camera.main.transform.position = cameraPosition;
+            unload();
         }
     }
     void OnTriggerEnter2D(Collider2D collider)
@@ -40,15 +49,12 @@ public class DoorHandler : MonoBehaviour
 
     IEnumerator TeleportAfterDelay(Collider2D collider)
     {
-        foreach (GameObject obj in Loadlist)
-        {
-            obj.SetActive(true);
-        }
+        load();
 
         // Wait for the specified delay time
         yield return new WaitForSeconds(delayBeforeTeleport);
 
-        Vector3 offset = collider.transform.position - gameObject.transform.position;
+        Vector3 offset = collider.transform.position - transform.position;
         Vector3 newPosition = door.transform.position + offset;
 
         newPosition.x = Mathf.Round(newPosition.x);
@@ -63,6 +69,19 @@ public class DoorHandler : MonoBehaviour
             Camera.main.transform.position = cameraPosition;
         }
 
+        unload();
+    }
+
+    private void load()
+    {
+        foreach (GameObject obj in Loadlist)
+        {
+            obj.SetActive(true);
+        }
+    }
+
+    private void unload()
+    {
         foreach (GameObject obj in UnloadList)
         {
             obj.SetActive(false);
