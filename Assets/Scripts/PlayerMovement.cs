@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform movePoint;
     // Components
     private Rigidbody2D rb;
-    private Animator anim;
+    public Animator anim;
     private TurnManager turnManager;
 
     // Variables
@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // Component references
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        // anim = GetComponent<Animator>();
 
         // Align the movePoint to the grid
         movePoint.parent = null;
@@ -62,10 +62,11 @@ public class PlayerMovement : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
         // Allow movement only when it's the player's turn
+        var atMovePoint = Vector3.Distance(transform.position, movePoint.position) <= 0.1f;
         if (turnManager.isPlayerTurn)
         {
             // Ensure the player is at the movePoint
-            if (Vector3.Distance(transform.position, movePoint.position) <= 0.1f)
+            if (atMovePoint)
             {
                 if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1)
                 {
@@ -84,10 +85,9 @@ public class PlayerMovement : MonoBehaviour
                         0f
                     );
 
-                    // Animation
-                    anim.SetBool("isMoving", true);
                     anim.SetFloat("lastMoveX", Input.GetAxisRaw("Horizontal"));
                     anim.SetFloat("lastMoveY", 0f);
+                    anim.Play("PlayerMovement");
 
                     turnManager.setPlayerTurn(false);
                 }
@@ -109,20 +109,15 @@ public class PlayerMovement : MonoBehaviour
                         0f
                     );
 
-                    // Animation
-                    anim.SetBool("isMoving", true);
                     anim.SetFloat("lastMoveY", Input.GetAxisRaw("Vertical"));
                     anim.SetFloat("lastMoveX", 0f);
+                    anim.Play("PlayerMovement");
 
                     turnManager.setPlayerTurn(false);
                 }
-                else
-                {
-                    // Stop movement animation if no input
-                    anim.SetBool("isMoving", false);
-                }
             }
         }
+
 
         // Trigger turn change when Space is pressed
         if (Input.GetKeyDown(KeyCode.Space))
