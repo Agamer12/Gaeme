@@ -48,6 +48,10 @@ public class Dialog : MonoBehaviour
         foreach (char c in line)
         {
             textComponent.text += c;
+            if (c == '\\')
+            {
+                continue;
+            }
             yield return new WaitForSeconds(textSpeed);
         }
     }
