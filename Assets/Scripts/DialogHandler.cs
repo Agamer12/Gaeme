@@ -21,8 +21,7 @@ public class DialogHandler : MonoBehaviour
     {
         if (collider.CompareTag("Player"))
         {
-            Debug.Log("Player triggered. Count: " + count);
-            if (count <= lines.Length)
+            if (count < lines.Length)
             {
                 text.StartDialog(lines[count]);
             }
