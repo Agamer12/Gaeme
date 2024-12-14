@@ -89,7 +89,8 @@ public class PlayerMovement : MonoBehaviour
                     anim.SetFloat("lastMoveY", 0f);
                     anim.Play("PlayerMovement");
 
-                    turnManager.setPlayerTurn(false);
+                    canWarn = true;
+                    Invoke("DoWarn", 0.5f);
                 }
                 else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1)
                 {
@@ -112,18 +113,23 @@ public class PlayerMovement : MonoBehaviour
                     anim.SetFloat("lastMoveY", Input.GetAxisRaw("Vertical"));
                     anim.SetFloat("lastMoveX", 0f);
                     anim.Play("PlayerMovement");
-
-                    turnManager.setPlayerTurn(false);
+                    canWarn = true;
+                    Invoke("DoWarn", 0.5f);
                 }
             }
         }
 
-
-        // Trigger turn change when Space is pressed
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (!AtTarget())
         {
-            turnManager.setPlayerTurn(true);
+            turnManager.setPlayerTurn(false);
         }
+
+
+        // // Trigger turn change when Space is pressed
+        // if (Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     turnManager.setPlayerTurn(true);
+        // }
     }
 
     public void TeleportPlayer(Vector3 newPosition)
@@ -131,5 +137,43 @@ public class PlayerMovement : MonoBehaviour
         // Set the player's and movePoint's positions to the new location
         transform.position = newPosition;
         movePoint.position = newPosition;
+    }
+
+    
+    private string[] warningLines = {
+        "*a chill runs up your spine*",
+        "*creak*",
+        "I think I heard something...",
+        "It's too quiet...",
+        "*rustle*",
+        "What was that?",
+        "...",
+        "*silence*",
+    };
+
+    private bool canWarn = true;
+    public bool AtTarget() { return Vector3.Distance(transform.position, movePoint.position) <= 0.1f; }
+
+    public void DoWarn() {
+        var dialog = FindFirstObjectByType<Dialog>(FindObjectsInactive.Include);
+        
+        var detectors = FindObjectsByType<DetectionManager>(FindObjectsSortMode.None);
+        var shouldWarn = false;
+        foreach (var detector in detectors)
+        {
+            if (detector.IsPlayerInWarning())
+            {
+                shouldWarn = true;
+                break;
+            }
+        }
+
+
+        if (!dialog.gameObject.activeSelf && shouldWarn && canWarn)
+        {
+            Debug.Log("WARHN");
+            dialog.StartDialog(warningLines[Random.Range(0, warningLines.Length)]);
+            canWarn = false;
+        }
     }
 }
