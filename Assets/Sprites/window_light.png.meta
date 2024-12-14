@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: aab13e5c98f9c42f393b4afbc02d3d5c
+guid: 9730d65c2cc7f204b9821eba9acf9b5c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3538944345149607664
-    second: level1_4_0
+      213: 6136402714995125914
+    second: window_light_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,7 +101,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: level1_4_0
+      name: window_light_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 144
+        width: 48
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 011fa734ed423eec0800000000000000
-      internalID: -3538944345149607664
+      spriteID: a9ee60ad1c1e82550800000000000000
+      internalID: 6136402714995125914
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      level1_4_0: -3538944345149607664
+      window_light_0: 6136402714995125914
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
