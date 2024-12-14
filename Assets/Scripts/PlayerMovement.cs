@@ -61,7 +61,6 @@ public class PlayerMovement : MonoBehaviour
         // Move towards the movePoint at a fixed speed
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
-        // Allow movement only when it's the player's turn
         if (turnManager.isPlayerTurn)
         {
             // Ensure the player is at the movePoint

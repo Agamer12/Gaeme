@@ -5,13 +5,16 @@ using System.Collections;
 public class Dialog : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
-    public string line;  // This holds the current line of text to display
+    public string line;
     public float textSpeed;
+
+    private TurnManager tm;
 
     void Start()
     {
         textComponent.text = string.Empty;
         gameObject.SetActive(false);
+        tm = GameObject.Find("TurnManager").GetComponent<TurnManager>();
     }
 
     void Update()
@@ -21,6 +24,7 @@ public class Dialog : MonoBehaviour
             if (textComponent.text == line)
             {
                 gameObject.SetActive(false);
+                tm.interupt = false;
             }
             else
             {
@@ -30,8 +34,9 @@ public class Dialog : MonoBehaviour
         }
     }
 
-    public void StartDialog(string newLine) // Corrected method name and parameter name
+    public void StartDialog(string newLine)
     {
+        tm.interupt = true;
         gameObject.SetActive(true);
         line = newLine;
         textComponent.text = "";

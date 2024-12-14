@@ -9,6 +9,8 @@ public class DoorHandler : MonoBehaviour
     public GameObject[] Loadlist;
     public GameObject[] UnloadList;
     public float delayBeforeTeleport; 
+
+    public bool magicTP;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,7 +24,11 @@ public class DoorHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (magicTP && Input.GetKeyDown(KeyCode.T))
+        {
+            GameObject player = GameObject.Find("Player");
+            StartCoroutine(TeleportAfterDelay(player.GetComponent<Collider2D>()));
+        }
     }
     void OnTriggerEnter2D(Collider2D collider)
     {

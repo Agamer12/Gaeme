@@ -1,5 +1,6 @@
 using System.Collections;
 using Unity.VisualScripting;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class TurnManager : MonoBehaviour
@@ -9,6 +10,9 @@ public class TurnManager : MonoBehaviour
     public float waitTime;
 
     private bool change;
+    public int turn;
+    private int warnCount;
+    private bool dead;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,6 +20,10 @@ public class TurnManager : MonoBehaviour
         isPlayerTurn = true;
         change = false;
         interupt = false;
+
+        turn = 0;
+        warnCount = 0;
+        dead = false;
 
         StartCoroutine(ManagePlayerTurn());
     }
@@ -29,7 +37,10 @@ public class TurnManager : MonoBehaviour
             change = isPlayerTurn;
         }
         
-        // isPlayerTurn = true;
+        if (dead)
+        {
+            killPlayer();
+        }
     }
 
     public void setPlayerTurn(bool val)
@@ -40,6 +51,11 @@ public class TurnManager : MonoBehaviour
     public void setInterupt(bool val)
     {
         interupt = val;
+    }
+
+    public void killPlayer()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 
     IEnumerator ManagePlayerTurn()
@@ -53,6 +69,7 @@ public class TurnManager : MonoBehaviour
             if (!isPlayerTurn)
             {
                 setPlayerTurn(true);
+                turn++;
             }
 
             yield return new WaitForSeconds(waitTime);
