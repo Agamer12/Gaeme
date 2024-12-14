@@ -5224,6 +5224,7 @@ GameObject:
   - component: {fileID: 1465369021}
   - component: {fileID: 1465369020}
   - component: {fileID: 1465369019}
+  - component: {fileID: 1465369022}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -5320,6 +5321,32 @@ Transform:
   - {fileID: 94847923}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1465369022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465369018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a081d40d34d54c2fabc1b79ebf6f45b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  warningRange: 1
+  deadRange: 3
+  detectionAngleWarn: 360
+  detectionAngleDead: 100
+  enemyEye: {fileID: 1465369021}
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 64
+  detectionTilemap: {fileID: 1120131330}
+  warningTile: {fileID: 11400000, guid: 55a441b05c9994689a4c7a57ca358db3, type: 2}
+  deadTile: {fileID: 11400000, guid: 6b3738f6e18c64fbfb5eea99b2d66697, type: 2}
 --- !u!1 &1497078757
 GameObject:
   m_ObjectHideFlags: 0
