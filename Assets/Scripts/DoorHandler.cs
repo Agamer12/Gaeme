@@ -11,10 +11,12 @@ public class DoorHandler : MonoBehaviour
     public float delayBeforeTeleport; 
 
     public bool magicTP;
+
+    private TurnManager tm;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        tm = GameObject.Find("TurnManager").GetComponent<TurnManager>();
     }
 
     void Awake()
@@ -70,6 +72,9 @@ public class DoorHandler : MonoBehaviour
         }
 
         unload();
+
+        tm.setPlayerTurn(true);
+        tm.setInterupt(false);
     }
 
     private void load()
