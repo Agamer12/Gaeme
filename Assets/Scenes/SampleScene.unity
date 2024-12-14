@@ -1721,7 +1721,7 @@ MonoBehaviour:
   UnloadList:
   - {fileID: 1818153962}
   delayBeforeTeleport: 0.5
-  magicTP: 1
+  magicTP: 0
 --- !u!1 &417095524
 GameObject:
   m_ObjectHideFlags: 0
