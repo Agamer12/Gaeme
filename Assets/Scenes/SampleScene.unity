@@ -1520,6 +1520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bag: {fileID: 844587979}
+  door: {fileID: 0}
 --- !u!1 &349404459
 GameObject:
   m_ObjectHideFlags: 0
@@ -1720,7 +1721,7 @@ MonoBehaviour:
   UnloadList:
   - {fileID: 1818153962}
   delayBeforeTeleport: 0.5
-  magicTP: 0
+  magicTP: 1
 --- !u!1 &417095524
 GameObject:
   m_ObjectHideFlags: 0
@@ -11625,7 +11626,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1031343264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11672,7 +11673,7 @@ MonoBehaviour:
   - {fileID: 805158597}
   - {fileID: 1787927866}
   - {fileID: 2057145699}
-  waitTurns: 2
+  waitTurns: 3
   eye: {fileID: 1031343267}
 --- !u!212 &1031343266
 SpriteRenderer:
@@ -12699,7 +12700,7 @@ MonoBehaviour:
   movePoints:
   - {fileID: 1870904864}
   - {fileID: 94847923}
-  waitTurns: 2
+  waitTurns: 3
   eye: {fileID: 1465369021}
 --- !u!212 &1465369020
 SpriteRenderer:
@@ -13742,7 +13743,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: af2a7daa87d1b4539860ad1b83b8abfc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1f2c681d65f0f4cb998d225663588741, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
