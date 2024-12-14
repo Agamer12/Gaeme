@@ -15,6 +15,12 @@ public class DetectionManager : MonoBehaviour
     public TileBase deadTile;
 
     private Vector2 currentFacingDirection;
+    private PlayerMovement playerMovement;
+
+    void Start()
+    {
+        playerMovement = FindFirstObjectByType<PlayerMovement>();
+    }
 
     void Update()
     {
@@ -25,19 +31,19 @@ public class DetectionManager : MonoBehaviour
 
     void CheckRanges()
     {
-        Collider2D warn = DetectPlayer(deadRange, detectionAngleDead);
-        Collider2D dead = DetectPlayer(warningRange, detectionAngleWarn);
+        // Collider2D warn = DetectPlayer(warningRange, detectionAngleWarn);
+        Collider2D dead = DetectPlayer(deadRange, detectionAngleDead);
         if (dead != null)
         {
             HandleRed(dead);
         }
-        else if (warn != null)
-        {
-            HandleYellow(warn);
-        }
     }
 
-    Collider2D DetectPlayer(float range, float angle)
+    public bool IsPlayerInWarning() {
+        return DetectPlayer(warningRange, detectionAngleWarn) != null;
+    }
+
+    public Collider2D DetectPlayer(float range, float angle)
     {
         float halfAngle = angle / 2f;
         for (int i = 0; i <= 10; i++)
@@ -94,10 +100,12 @@ public class DetectionManager : MonoBehaviour
     void HandleRed(Collider2D colider)
     {
         Debug.Log("Immediate threat detected.");
+        FindFirstObjectByType<SceneTransition>(FindObjectsInactive.Include).GameOver();
     }
 
-    void HandleYellow(Collider2D colider)
-    {
-        Debug.Log("Player detected in warning range.");
-    }
+    // void HandleYellow(Collider2D colider)
+    // {
+    //     Debug.Log("Player detected in warning range.");
+    //     // FindFirstObjectByType<PlayerMovement>().inWarn = true;
+    // }
 }
