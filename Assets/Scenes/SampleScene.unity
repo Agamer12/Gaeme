@@ -2292,7 +2292,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 668525314}
-  m_BodyType: 2
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -10228,7 +10228,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 8c0e312920ad242cda270b2a6acf26e6, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 779
-    m_Data: {fileID: 21300000, guid: d4730e458709544af84c73b189059d86, type: 3}
+    m_Data: {fileID: -2526430002780337562, guid: 69851b2f2e710413a8f24cf145400e2b, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 21300000, guid: 7cc4069a628c1451eb223cc415f15080, type: 3}
   - m_RefCount: 0
